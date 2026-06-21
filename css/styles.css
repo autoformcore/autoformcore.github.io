@@ -10,7 +10,8 @@ VARIABLES
     --txt-main: oklch(23% 0 0);
     --txt-secondary: oklch(50% 0 0);
 
-    --accent: oklch(70% 0.2 257);
+    --accent: oklch(49.539% 0.17645 261.435);
+    --accent-transparent: oklch(39.539% 0.17645 261.435 / 0.8);
 
     --navbarHeight: 40px;
 }
@@ -81,7 +82,7 @@ h4 {
 }
 
 h6 {
-    color: lime;
+    font-family: "space grotesk", sans-serif;
     text-align: left;
 }
 
@@ -129,7 +130,7 @@ LAYOUT
 COMPONENTS
 --------*/
 
-.button-glass {
+.button-pimary {
     display: block;
     width: fit-content;
     border-radius: 10px;
@@ -140,10 +141,9 @@ COMPONENTS
     font-size: 1rem;
     font-weight: 400;
 
-    color: var(--txt-main); 
-    background: var(--accent);
-    box-shadow:-5px -5px 5px oklch(100% 0 0 / 0.5),
-    5px 5px 5px oklch(0% 0 0 / 0.2);
+    color: var(--background1); 
+    background: var(--accent-transparent);
+    box-shadow: 0 0 20px var(--accent);
 }
 
 .button-text {
@@ -257,7 +257,7 @@ nav .container {
     height: 100%;
     display: flex;
     align-items: center;
-    color: var(--linkCol);
+    color: var(--txt-main);
     transition: .2s ease;
 }
 
@@ -646,12 +646,12 @@ ROADMAP PAGE
 
 .roadmap-body h6 {
     font-family: "poppins", sans-serif;
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 400;
     width: 100%;
     letter-spacing: 0.1em;
     text-align: left;
-    color: var(--txt-main);
+    color: var(--txt-secondary);
 }
 
 .roadmap-body h3 {
@@ -667,8 +667,8 @@ ROADMAP PAGE
     align-items: center;
     width: 100%;
     border-radius: 15px;
-        overflow: hidden;
-        transition: .3s ease-out;
+    overflow: hidden;
+    transition: .3s ease-out;
 }
 
 .roadmap-stage .metadata-overlay {
@@ -678,9 +678,19 @@ ROADMAP PAGE
 .roadmap-stage img {
     z-index: -1;
     width: min(100%, 95vw);
-    aspect-ratio: 4/2;
+    aspect-ratio: 3/2;
     object-fit: cover;
     object-position: center 60%;
+}
+
+@media(max-width: 1000px) {
+    .roadmap-stage .metadata-overlay {
+        margin-top: 10px;
+    }
+
+    .roadmap-stage .metadata-overlay {
+        gap: 5px;
+    }
 }
 
 /*---------
@@ -705,8 +715,33 @@ APPROACH PAGES
     font-size: 1.5rem;
 }
 
+
+/*CORE TUTORIALS CAROUSEL*/
 .approach-section-core {
     height: 600px;
+}
+
+.approach-carousel {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 400px;
+    width: 100%;
+    gap: 50px;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.approach-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-card {
+    height: 400px;
+    flex: 0 0 400px;
+    background-color: rgba(0, 119, 255, 0.479);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /*CONTENT*/

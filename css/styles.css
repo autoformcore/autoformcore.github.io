@@ -727,7 +727,7 @@ APPROACH PAGES
     overflow-y: hidden;
     height: 400px;
     width: 100%;
-    gap: 50px;
+    gap: min(5vw, 30px);
     scrollbar-width: none;
     scroll-snap-type: x mandatory;
 }
@@ -737,11 +737,13 @@ APPROACH PAGES
 }
 
 .carousel-card {
-    height: 400px;
-    flex: 0 0 400px;
+    max-height: 400px;
+    width: min(400px, 75vw);
+    aspect-ratio: 3/4;
     background-color: rgba(0, 119, 255, 0.479);
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    border-radius: 20px;
 }
 
 /*CONTENT*/
